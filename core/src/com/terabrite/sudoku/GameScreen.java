@@ -12,27 +12,26 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
-public class MenuScreen implements Screen {
+public class GameScreen implements Screen {
 	private Stage stage;
 	private TextButton button;
 	SudokuGame game;
 	
-	public MenuScreen(SudokuGame game) {
+	public GameScreen(SudokuGame game) {
 		
 		this.game = game;
 		
 		Skin skin = new Skin(Gdx.files.internal("data/ui/uiskin.json"));
 		stage = new Stage();
-        button = new TextButton("Start", skin);	
+        button = new TextButton("X", skin);	
         stage.addActor(button);
-        button.setSize(Gdx.graphics.getWidth()-Gdx.graphics.getWidth()/20, Gdx.graphics.getHeight()/8);
+        button.setSize(Gdx.graphics.getHeight()/20, Gdx.graphics.getHeight()/20);
         button.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-            	((Game) Gdx.app.getApplicationListener()).setScreen(SudokuGame.gameScreen);
+            	((Game) Gdx.app.getApplicationListener()).setScreen(SudokuGame.menuScreen);
             }
         });
-
 
 	}
 	// the quick start button should just select the next uncompleted level in
@@ -54,8 +53,8 @@ public class MenuScreen implements Screen {
 	public void resize(int width, int height) {
 		// TODO Auto-generated method stub
 		button.setPosition(
-                (width-button.getWidth())/2, 
-                (height-button.getHeight())/2);
+                (width-(button.getWidth()+button.getWidth()/10)), 
+                (height-(button.getHeight()+button.getWidth()/10)));
 	}
 
 	@Override
