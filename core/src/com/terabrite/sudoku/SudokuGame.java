@@ -23,16 +23,16 @@ public class SudokuGame extends Game {
 	
 	@Override
 	public void create() {
-		
-		try {
-			LevelGenerator.scanLevel(10);
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		
+//		try {
+//			LevelGenerator.scanLevel(10);
+//		} catch (FileNotFoundException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 		
 		menuScreen = new MenuScreen(this);
 		gameScreen = new GameScreen(this);
