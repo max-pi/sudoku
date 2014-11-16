@@ -1,5 +1,7 @@
 package com.terabrite.sudoku;
 
+import java.io.IOException;
+
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
@@ -23,7 +25,9 @@ public class GameScreen implements Screen {
 	private ShapeRenderer shapeRenderer;
 	SudokuGame game;
 
-	public GameScreen(SudokuGame game) {
+	Level level;
+	
+	public GameScreen(SudokuGame game) throws IOException {
 
 		this.game = game;
 
@@ -40,6 +44,9 @@ public class GameScreen implements Screen {
 						.setScreen(SudokuGame.menuScreen);
 			}
 		});
+		
+		
+		level = LevelGenerator.scanLevel(10);
 
 	}
 
@@ -77,6 +84,14 @@ public class GameScreen implements Screen {
 				// Gdx.graphics.getHeight()/5, Gdx.graphics.getHeight()/5 + (i *
 				// 40), (9 * 40));
 				shapeRenderer.rect(x * radius, y * radius, radius, radius);
+				
+				TextButton sudokuButton = new TextButton(level.getGrid()[x][y], AssetLoader.skin);	
+		        stage.addActor(sudokuButton);
+		        sudokuButton.setSize(radius, radius);
+		        sudokuButton.setPosition(x*radius, y*radius);
+		        
+		        
+		        
 			}
 		}
 		shapeRenderer.end();

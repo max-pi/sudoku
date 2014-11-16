@@ -34,8 +34,15 @@ public class SudokuGame extends Game {
 //			e.printStackTrace();
 //		}
 		
+		AssetLoader.loadAll();
+		
 		menuScreen = new MenuScreen(this);
-		gameScreen = new GameScreen(this);
+		try {
+			gameScreen = new GameScreen(this);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		setScreen(menuScreen);
 		

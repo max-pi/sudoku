@@ -2,10 +2,14 @@ package com.terabrite.sudoku;
 
 import java.util.ArrayList;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeType;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 
 public class AssetLoader {
+	
+	static Skin skin;
 	
 	FreeTypeFontGenerator fontGenerator;
 	
@@ -17,14 +21,17 @@ public class AssetLoader {
 
 	// class in charge of loading all the game assets, fonts, textures, sudoku level files
 
-	public void loadAll(){
+	public static void loadAll(){
+		
+		skin = new Skin(Gdx.files.internal("data/ui/uiskin.json"));
+		
 		// load everything
 		loadFonts();
 		loadTextures();
 		loadLevels();
 	}
 
-	public void loadFonts() {
+	public static void loadFonts() {
 		
 		//fontgeneraalsdkjfsa
 		
@@ -38,12 +45,12 @@ public class AssetLoader {
 //		}
 	}
 	
-	public void changeFontSize(int newSize) {
+	public static void changeFontSize(int newSize) {
 		// reload font with the new size
 		// maybe I should have a font array of various sizes. Will probably be need multiple sizes at the same time
 	}
 	
-	public void loadTextures() {
+	public static void loadTextures() {
 		// not even sure what textures I will have yet
 		// maybe should look in
 		// levels will probably be labeled with a number,
@@ -51,7 +58,7 @@ public class AssetLoader {
 		// the button designs I guess
 	}
 	
-	public void loadLevels() {
+	public static void loadLevels() {
 		// not quite sure what this will mean yet
 		
 		// will load the level file

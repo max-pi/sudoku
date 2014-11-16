@@ -27,7 +27,7 @@ public class LevelGenerator {
 
 	}
 
-	public static void scanLevel(int id) throws IOException {
+	public static Level scanLevel(int id) throws IOException {
 		// retrieve level based on id
 
 		FileHandle f = Gdx.files.internal("levels100.txt");
@@ -52,7 +52,7 @@ public class LevelGenerator {
 			System.out.println(levelLines[x]);
 
 		}
-		Level level = new Level(levelLines, id);
+		return new Level(levelLines, id);
 
 	}
 
